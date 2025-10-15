@@ -30,3 +30,4 @@ pipeline{
       bat 'echo "Build Failed"'
     }
   }
+}
