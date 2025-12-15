@@ -1,0 +1,37 @@
+pipeline{
+  agent any
+    stages{
+      stage('Checkout code'){
+        steps{
+          git branch: 'main', url: 'https://github.com/saiteja0268/Jenkins.git'
+        }
+      }
+      stage('Build'){
+        steps{
+         bat 'echo "Build is the stage of CI/CD where source code is compiled and artifacts are generated"'
+        }
+      }
+      stage('Test'){
+        steps{
+          bat 'echo "Test is the stage of CI/CD where different tests such as unit tests, Integration test, Performance test are performed"'
+        }
+      }
+      stage('Staging'){
+        steps{
+          bat 'echo "Staging is the stage where automatically build and tested code is deployed to staging area"'
+        }
+      }
+      stage('Production'){
+       steps{
+         bat 'echo "Deployment to Production is the stage where automatically build and tested code is deployed to production area"'
+       }
+      }
+  post{
+    success{
+      bat 'echo "Build Successful"'
+    }
+    failure{
+      bat 'echo "Build Failed"'
+    }
+    }
+}
