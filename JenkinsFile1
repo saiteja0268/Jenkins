@@ -26,6 +26,7 @@ pipeline{
          bat 'echo "Deployment to Production is the stage where automatically build and tested code is deployed to production area"'
        }
       }
+    }
   post{
     success{
       bat 'echo "Build Successful"'
